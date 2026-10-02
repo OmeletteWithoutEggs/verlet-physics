@@ -23,17 +23,16 @@ def checkPoint(points):
 
 
 
-screen = pygame.display.set_mode((1900,1000))
-camera = Camera(screen,(1900,1000),5,zoomspeed=5)
+
 inputManager = Input()
 points = []
 links = []
 lines = []
 
-path = input()
+path = input("enter the save you would like to edit (eg: 'save1') \nit must already exist as a json file\n")
 if path:
     try:
-        with open(path+".json","r") as file:
+        with open("saves/"+path+".json","r") as file:
             data = json.load(file)
         points = data["objects"]
         links = data["links"]
@@ -41,6 +40,9 @@ if path:
     except:
         print("file not found")
         exit()
+
+screen = pygame.display.set_mode((1900,1000))
+camera = Camera(screen,(1900,1000),5,zoomspeed=5)
 
 mass = 10
 radius = 5

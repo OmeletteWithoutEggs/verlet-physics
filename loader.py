@@ -10,12 +10,12 @@ from debugy import debug, timerModule
 from inputHandler import Input
 
 
-screen = pygame.display.set_mode((1900,1000))
-camera = Camera(screen,(1900,1000),500,zoomspeed=5)
 inputManager = Input()
 physics = Solver()
 #physics.constraints.append((0,-100000,100000+500))
-physics.load(input())
+physics.load("saves/"+input("enter the save you would like to load (eg: 'save1','save2'): "))
+screen = pygame.display.set_mode((1900,1000))
+camera = Camera(screen,(1900,1000),500,zoomspeed=5)
 
 
 
